@@ -1,0 +1,120 @@
+React Anotations
+
+	JavaScript library.
+	
+	A componente is a JavaScript class that has some state (data that we want to display when the component is render) and a render method(responsable
+	to discribe what the UI should look), the render method will output a react element witch is a simple plan javacript object that maps to dom element
+	
+	to create a react app run: create-react-app "name"
+	to run the app: npm start
+	
+	JSX is the pattern that we write html to Babel convert into simple JavaScript
+	to log something on the console: console.log(element);
+	to install bootstrap run on the console:npm i bootstrap@4.1.1
+	
+	JavaScript doesn't know how to interpret more than one tag int the return of render, so you need to emblend this on <React.Fragment>
+	with className you apply styles to your css <button className="btn btn-secondary btn-sm">Increment</button>
+	
+	define styles inline:
+        <span style={{ fontSize: 30 }} className="badge badge-primary m-2">
+	
+	define stype in variable:
+		styles = {
+			fontSize: 10,
+			fontWeight: "bold"
+		};
+
+		render() {
+			return (
+				<React.Fragment>
+				<span style={this.styles} className="badge badge-primary m-2">
+				
+		calling a function
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+		
+		list 
+		<ul>
+          {this.state.tags.map(tag => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+		
+		'this' works depending on the situation
+		obj.method( this ); this is a reference to obj
+		function( this ); returns a reference to the windown object, but if the strict mode is enable, it will return undefined
+			to have access in this scenario, we need to use a bind method
+			
+		functions in javascript are object, and the have properties and methods
+		
+		after change some state we need to tell react the something has changed and to update the dom, you need to use this.setState();
+		
+		passing a parameter to a function
+		
+          onClick={() => this.handleIncrement(product)}
+		  
+		  handleIncrement = product => {
+			console.log(product);
+			this.setState({ count: this.state.count + 1 });
+		  };
+	
+	
+	Every react component has a property clallded props, you can verify it by console.log('props', this.props) that includes all atributes passed
+	by the parent component
+	
+	
+	Passing content to the children component 
+		<Counter key={counter.id} value={counter.value}>  <-- pass simply information
+            <h4>Title</h4>  <-- childreen props
+         </Counter>
+	
+	props -> information that is given to a component, and the data is read only, you can not change the value inside its component
+	
+	state -> data that is local or private to that componente
+	
+	the component that owns a piece of the state, should be the one modifying it. You can not modifie a component for it's childreen, it need
+	to be done from where it was created
+	
+	const counters = [...this.state.counters]; -- clone all the object counters
+	
+	
+	when you hava a component that only hava the render method and any state, you can convert it to a Stateless Functional Component, but you 
+	can not use life cicle hooks inside them
+	
+	
+	react has 3 main phases
+	Mount 
+		counstructor - called only once when a instance of a class is created. This part is a good oportunity to initialize props values
+		render
+		componentDidMount - called when the component is render to the dom, is the perfect place to make ajax call to a server to get data
+	Update
+		render
+		componentDidUpdate - called after a component is update, that it means maybe we have new state or new props. In this case we can compare
+			the new state with the old state, and the new props with the old props, that if changed whe can call a ajax to get new data from server
+	UnMount
+		componentWillUnmount - called just before one component is remove from the dom
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
