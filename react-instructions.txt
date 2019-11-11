@@ -1,7 +1,7 @@
 React Anotations
 
 	JavaScript library.
-	
+	To configure the base react project: npm i -g crete-react-app
 	A componente is a JavaScript class that has some state (data that we want to display when the component is render) and a render method(responsable
 	to discribe what the UI should look), the render method will output a react element witch is a simple plan javacript object that maps to dom element
 	
