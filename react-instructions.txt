@@ -1,4 +1,61 @@
 React Anotations
+let = block scope
+const = read only 
+var = function scope
+
+Acessing object 
+const person = {
+  name: "Mosh",
+  walk() {},
+  talk() {}
+};
+
+person.talk();
+const targetMember = "name";
+person.name;
+person[targetMember] = "John";
+
+
+Arrow function
+const square = (number) => {
+    return number * number;
+}
+
+template literal
+const color = ['red', 'green', 'blue'];
+const items = colors.maps(color => `<li>${color}</li>`);
+
+object destructuring
+const address = {
+	street: '',
+	city: '',
+	country: ''
+};
+
+const {street: st, city, country } = address;
+
+spread operator
+//arrays
+const first = [1,2,3];
+const second = [4,5,6];
+const combined = [...first, 'other item', ...second];
+
+//objects
+const first = {name : 'Mosh'};
+const second = {job : 'Instructor'};
+const combined = {...first, ...second, location: 'Australia'};
+
+By defaut all classes are private, by add export before de class name
+you allow other files to import this class. 
+Classes should be put in modules folder to a better organization of your code
+export Class YourClass {}
+import {YourClass} from './yourclass';
+you can also export a function
+export function promote(){}
+if you export something as defaut you don't need to use {} at the import sentence
+export default YourClass(){}
+import YourClass from './yourclass';
+
 
 	JavaScript library.
 	To configure the base react project: npm i -g crete-react-app
